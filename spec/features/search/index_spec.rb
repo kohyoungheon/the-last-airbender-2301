@@ -10,7 +10,7 @@ RSpec.describe 'Search Page', type: :feature do
 
       expect(current_path).to eq(search_path)
       expect(page).to have_content("Members of the Fire Nation")
-      expect(page).to have_content("Total Members: 20")
+      expect(page).to have_content("Total Members: 97")
       expect(page).to have_content("Name: Afiko")
       expect(page).to have_content("Allies: Fire Nation")
 

@@ -2,9 +2,27 @@
 Total Members: <%= @facade.all_affiliations.size %><br><br>
 
 <% @facade.affiliations.each do |affiliation| %>
-Name: <%= affiliation[:name] %>
-<img src="<%=affiliation[:photoUrl]%>"><br>
-Allies: <%= affiliation[:allies].to_sentence %><br>
-Enemies: <%= affiliation[:enemies].to_sentence %><br>
+
+<% if affiliation.key?(:photoUrl) && affiliation[:photoUrl].present? %>
+  <img src="<%= affiliation[:photoUrl] %>"><br>
+<% end %>
+
+Name: <%= affiliation[:name] %><br>
+
+Allies:
+<% if affiliation[:allies] != [] %>
+  <%= affiliation[:allies].to_sentence %><br>
+  <% else %>
+  <%= "None" %><br>
+<% end %>
+
+Enemies: 
+<% if affiliation[:enemies] != [] %>
+  <%= affiliation[:enemies].to_sentence %><br>
+  <% else %>
+  <%= "None" %><br>
+<% end %>
+
 Affiliations: <%= affiliation[:affiliation] %><br>
+<p>=========================================</p>
 <% end %>
