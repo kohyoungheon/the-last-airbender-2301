@@ -7,7 +7,14 @@ class AvatarFacade
 
 
   def affiliations
-    json = service.get_affiliations(@params[:nation])
+    json = service.get_25_affiliations(@params[:nation])
+    json.each do |affiliation|
+      Affiliation.new(affiliation)
+    end
+  end
+
+  def all_affiliations
+    json = service.get_all_affiliations(params[:nation])
     json.each do |affiliation|
       Affiliation.new(affiliation)
     end

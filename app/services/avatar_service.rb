@@ -10,8 +10,14 @@ class AvatarService
     JSON.parse(response.body, symbolize_names: true)
   end
 
-  def get_affiliations(affiliation)
-    get_url("api/v1/characters?affiliation=#{affiliation}")
+  def get_25_affiliations(nation)
+    get_url("api/v1/characters?affiliation=#{nation}&perPage=25")
   end
+
+  def get_all_affiliations(nation)
+    get_url("api/v1/characters?affiliation=#{nation}&perPage=1000")
+  end
+
+  
 
 end
