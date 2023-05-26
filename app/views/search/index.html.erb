@@ -1,0 +1,9 @@
+<h1>Members of the <%= @nation %> </h1>
+Total Members: <%= @facade.affiliations.size %><br><br>
+<% @facade.affiliations.each do |affiliation| %>
+Name: <%= affiliation[:name] %>
+<img src="<%=affiliation[:photoUrl]%>"><br>
+Allies: <%= affiliation[:allies].to_sentence %><br>
+Enemies: <%= affiliation[:enemies].to_sentence %><br>
+Affiliations: <%= affiliation[:affiliation] %><br>
+<% end %>
